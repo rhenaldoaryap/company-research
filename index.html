@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <title>Rhenaldo</title>
+  </head>
+  <body>
+    <header x-data="{ open: false }" class="w-full z-30 bg-gradient-to-r from-green-400 to-blue-500">
+        <nav class="flex flex-col lg:flex-row">
+            <div class="flex flex-col lg:flex-row">
+                <div class="flex items-center justify-between px-4 py-4 lg:py-5 lg:px-10">
+                    <div>
+                        <a class="uppercase font-semibold text-2xl font-primary" href="#">Logo</a>
+                    </div>
+                    <div>
+                        <button @click="{ open = !open }" class="block lg:hidden focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path :class="{ 'hidden': open === false }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                                </path>
+                                <path :class="{ 'hidden': open === true }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div :class="{ 'hidden': open === false }" class="lg:flex items-center text-sm flex-col lg:flex-row justify-between w-full uppercase">
+                <div class="flex items-center flex-col lg:flex-row font-primary font-semibold">
+                    <a href="#" class="block py-5 px-5 lg:py-5 lg:mx-5 hover:text-white">Home</a>
+                    <a href="#" class="block py-5 px-5 lg:py-5 lg:mx-5 hover:text-white">Menu</a>
+                    <a href="#" class="block py-5 px-5 lg:py-5 lg:mx-5 hover:text-white">Contact</a>
+                </div>
+                <div class="flex items-center flex-col lg:flex-row font-primary font-semibold">
+                    <a href="#" class="justify-center items-center inline-flex h-10 rounded-lg transition duration-500 ease-in-out bg-white ring-1 -z-40 transform hover:-translate-y-1 hover:scale-100 hover:bg-green-600 hover:text-white my-3 py-3 px-5 lg:py-2 lg:my-2 lg:-mx-5">Price</a>
+                    <a href="#" class="bg-gradient-to-r from-pink-500 to-yellow-500 rounded-lg justify-center items-center inline-flex h-10 border transition duration-500 ease-in-out my-3 py-3 px-5 lg:py-2 lg:my-2 lg:mx-10 hover:text-white">Get Started
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd">
+                        </path>
+                    </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+		<hr class="border-b border-black opacity-25 my-0 py-0" />
+    </header>
+
+    <main class="text-blue-900 body-font">
+        <!-- Hero -->
+        <div class="flex flex-col items-center px-5 py-10 mx-auto lg:px-20 lg:py-20 md:flex-row">
+            <div class="w-full mb-10 lg:max-w-lg lg:w-full md:w-full md:mb-1">
+                <img src="https://image.freepik.com/free-vector/people-with-technology-devices_52683-34717.jpg" alt="hero-image" class="object-cover object-center rounded">
+            </div>
+            <div class="flex flex-col items-center text-center lg:flex-grow lg:pl-24 md:pl-5 md:items-start md:text-left font-primary">
+                <h2 class="mb-1 text-sm font-medium tracking-widest">
+                    Apakah produk Anda sudah <span class="text-red-600 underline font-semibold">tepat sasaran</span>?
+                </h2>
+                <h1 class="my-3 text-2xl font-bold tracking-tighter text-justify md:text-left lg:text-left lg:text-5xl">
+                    Kami melakukan riset berdasarkan data yang valid dan sesuai dengan fakta dilapangan.
+                </h1>
+                <p class="mb-8 text-base leading-relaxed text-justify md:text-left lg:text-left lg:text-1xl">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eos nisi vero itaque, amet veniam, veritatis assumenda quia labore similique dolor fugiat optio magnam quaerat sed voluptatibus aliquam obcaecati recusandae?
+                </p>
+                <a href="#price" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded-lg justify-center items-center inline-flex h-10 w-full border transition duration-500 ease-in-out px-5 lg:-py-3 lg:-my-3 text-white font-semibold">Grow with Us
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                    <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                </a>
+            </div>
+        </div>
+        <!-- End Hero -->
+        <!-- Statistic -->
+        <div class="text-center mx-auto bg-green-100 text-white">
+            <h2 class="items-center font-primary text-3xl font-semibold px-5 py-5 text-blue-900">
+            Bergabung bersama kami dengan statistik memuaskan
+            </h2>
+            <div class="content-center mt-2 bg-green-200">
+                <div class="grid grid-cols-4 gap-4 md:gap-3 px-1 font-primary py-10 text-blue-900">
+                    <div>
+                        <h4 class="text-2xl font-bold">1238+</h4>
+                        <p class="font-semibold text-lg">Total Client</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">97%</h4>
+                        <p class="font-semibold text-lg">Success Rate</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">800+</h4>
+                        <p class="font-semibold text-lg">Total Research</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">5%</h4>
+                        <p class="font-semibold text-lg">Sales Increase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Statictic -->
+        <!-- Pictures -->
+        <div class="flex flex-col items-center px-5 py-16 mx-auto lg:px-20 md:flex-row">
+            <div class="w-full mb-10 lg:max-w-lg lg:w-full md:w-1/2 md:mb-0">
+                <img class="object-cover object-center rounded" alt="hero" src="https://image.freepik.com/free-vector/keywords-searching-seo-content-marketing-isolated-flat-design-element-business-solution-strategy-planning-man-holding-magnifier-key-concept-illustration_335657-1686.jpg">
+            </div>
+            <div class="flex flex-col items-center text-justify lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
+                <h2 class="mb-1 text-base font-medium tracking-widest">
+                Hasil riset <span class="text-green-500 underline font-bold">memuaskan.</span></h2>
+                <h1 class="my-3 text-2xl font-bold tracking-tighter text-center lg:text-left lg:text-5xl title-font">
+                    Riset dikerjakan oleh team berpengalaman.
+                </h1>
+                <p class="mb-8 text-base leading-relaxed text-justify text-gray-700 lg:text-left lg:text-1xl">
+                Static Tailwind CSS
+                templates for easy integration
+                with your go-to language.
+                Designing your landing page usually takes weeks.
+                Wickedtemplates has them ready for you so you take care of what really matters.
+                Deploy stunning landing pages in no time.</p>
+                <a href="#team" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded-lg justify-center items-center inline-flex h-10 w-full border transition duration-500 ease-in-out px-5 lg:-py-3 lg:-my-3 text-white font-semibold">See Our Team
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                    <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-col items-center px-5 py-16 mx-auto lg:px-20 md:flex-row">
+            <div class="w-full mb-10 lg:max-w-lg lg:w-full md:w-1/2 md:mb-0">
+                <img class="object-cover object-center rounded" alt="hero" src="https://image.freepik.com/free-vector/super-employee-composition-with-people-office-interior-looking-their-coworker-with-many-hands-multitasking-concept-flat-vector-illustration_1284-30459.jpg">
+            </div>
+            <div class="flex flex-col items-center text-justify lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
+                <h2 class="mb-1 text-base font-medium tracking-widest">
+                Efisien Waktu dan Biaya.</h2>
+                <h1 class="my-3 text-2xl font-bold tracking-tighter text-center lg:text-left lg:text-5xl title-font">
+                    Hasil riset cepat, tepat, akurat.
+                </h1>
+                <p class="mb-8 text-base leading-relaxed text-justify text-gray-700 lg:text-left lg:text-1xl">
+                Static Tailwind CSS
+                templates for easy integration
+                with your go-to language.
+                Designing your landing page usually takes weeks.
+                Wickedtemplates has them ready for you so you take care of what really matters.
+                Deploy stunning landing pages in no time.</p>
+                <a href="#testi" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded-lg justify-center items-center inline-flex h-10 w-full border transition duration-500 ease-in-out px-5 lg:-py-3 lg:-my-3 text-white font-semibold">See Testimonials
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                    <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-col items-center px-5 py-16 mx-auto lg:px-20 md:flex-row">
+            <div class="w-full mb-10 lg:max-w-lg lg:w-full md:w-1/2 md:mb-0">
+                <img class="object-cover object-center rounded" alt="hero" src="https://image.freepik.com/free-vector/market-launch-concept-illustration_114360-1498.jpg">
+            </div>
+            <div class="flex flex-col items-center text-justify lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
+                <h2 class="mb-1 text-base font-medium tracking-widest">
+                Saatnya berkembang.</h2>
+                <h1 class="my-3 text-2xl font-bold tracking-tighter text-center lg:text-left lg:text-5xl title-font">
+                    Kami bantu bisnis Anda menjadi lebih besar dengan hasil riset kami.
+                </h1>
+                <p class="mb-8 text-base leading-relaxed text-justify text-gray-700 lg:text-left lg:text-1xl">
+                Static Tailwind CSS
+                templates for easy integration
+                with your go-to language.
+                Designing your landing page usually takes weeks.
+                Wickedtemplates has them ready for you so you take care of what really matters.
+                Deploy stunning landing pages in no time.</p>
+                <a href="#price" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:text-black rounded-lg justify-center items-center inline-flex h-10 w-full border transition duration-500 ease-in-out px-5 lg:-py-3 lg:-my-3 text-white font-semibold">Grow with Us
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                    <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                </a>
+            </div>
+        </div>
+        <!-- End Pictures -->
+        <hr class="border-b border-black opacity-25 my-0 py-0" />
+        <!-- Testimonials -->
+        <div class="text-center py-5 px-5 bg-green-200" id="testi">
+            <h4 class="font-primary font-bold text-4xl">Apa kata mereka?</h4>
+        </div>
+        <section class="bg-green-200">
+            <div class="container px-8 mx-auto lg:px-4">
+                <div class="flex flex-wrap -m-4">
+                    <div class="p-8 mx-auto mb-6 lg:w-1/3 lg:mb-0 hover:transition duration-500 ease-in-out transform hover:-translate-y-10 hover:scale-y-100 hover:text-black hover:font-semibold">
+                        <div class="h-full p-4 text-justify border rounded-xl">
+                            <p class="text-base font-medium leading-relaxed">"Skate ipsum dolor sit amet, slam birdie wheels ollie darkslide egg plant. Baseplate 540 helipop flypaper feeble griptape. Nollie deck street bluntslide half-cab yeah. Casper slide ollie north 540 Bill Danforth slide cess slide nose blunt. Pressure flip Streetstyle in Tempe mute-air judo air backside fastplant yeah. ".</p>
+                            <a class="flex flex-wrap justify-center mt-6">
+                                <img alt="testimonial" class="inline-block object-cover object-center w-16 h-16 mb-4 rounded-full bg-4gray-100" src="https://images.unsplash.com/photo-1599140781147-e9a53c8cdd03?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+                            </a>
+                            <span class="flex flex-col flex-grow text-center">
+                                <span class="font-medium">Jakko Svensson</span>
+                                <span class="text-sm uppercase">Corporate Position</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8 mx-auto mb-6 lg:w-1/3 lg:mb-0 hover:transition duration-500 ease-in-out transform hover:-translate-y-10 hover:scale-y-100 hover:text-black hover:font-semibold">
+                        <div class="h-full p-4 text-justify border rounded-xl">
+                            <p class="text-base font-medium leading-relaxed">"Skate ipsum dolor sit amet, slam birdie wheels ollie darkslide egg plant. Baseplate 540 helipop flypaper feeble griptape. Nollie deck street bluntslide half-cab yeah. Casper slide ollie north 540 Bill Danforth slide cess slide nose blunt. Pressure flip Streetstyle in Tempe mute-air judo air backside fastplant yeah. ".</p>
+                            <a class="flex flex-wrap justify-center mt-6">
+                                <img alt="testimonial" class="inline-block object-cover object-center w-16 h-16 mb-4 rounded-full bg-4gray-100" src="https://images.unsplash.com/photo-1603610515737-193e0b423983?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+                            </a>
+                            <span class="flex flex-col flex-grow text-center">
+                                <span class="font-medium">Mike Taissöön</span>
+                                <span class="text-sm uppercase">Corporate Position</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8 mx-auto mb-6 lg:w-1/3 lg:mb-0 hover:transition duration-500 ease-in-out transform hover:-translate-y-10 hover:scale-y-100 hover:text-black hover:font-semibold">
+                        <div class="h-full p-4 text-justify border rounded-xl">
+                            <p class="text-base font-medium leading-relaxed">"Skate ipsum dolor sit amet, slam birdie wheels ollie darkslide egg plant. Baseplate 540 helipop flypaper feeble griptape. Nollie deck street bluntslide half-cab yeah. Casper slide ollie north 540 Bill Danforth slide cess slide nose blunt. Pressure flip Streetstyle in Tempe mute-air judo air backside fastplant yeah. ".</p>
+                            <a class="flex flex-wrap justify-center mt-6">
+                                <img alt="testimonial" class="inline-block object-cover object-center w-16 h-16 mb-4 rounded-full bg-4gray-100" src="https://images.unsplash.com/photo-1561442748-c50715dc32f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=401&q=80">
+                            </a>
+                            <span class="flex flex-col flex-grow text-center">
+                                <span class="font-medium">Sanna Ristola</span>
+                                <span class="text-sm uppercase">Corporate Position</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8 mx-auto mb-6 lg:w-1/3 lg:mb-0 hover:transition duration-500 ease-in-out transform hover:-translate-y-10 hover:scale-y-100 hover:text-black hover:font-semibold">
+                        <div class="h-full p-4 text-justify border rounded-xl">
+                            <p class="text-base font-medium leading-relaxed">"Skate ipsum dolor sit amet, slam birdie wheels ollie darkslide egg plant. Baseplate 540 helipop flypaper feeble griptape. Nollie deck street bluntslide half-cab yeah. Casper slide ollie north 540 Bill Danforth slide cess slide nose blunt. Pressure flip Streetstyle in Tempe mute-air judo air backside fastplant yeah. ".</p>
+                            <a class="flex flex-wrap justify-center mt-6">
+                                <img alt="testimonial" class="inline-block object-cover object-center w-16 h-16 mb-4 rounded-full bg-4gray-100" src="https://images.unsplash.com/photo-1561442748-c50715dc32f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=401&q=80">
+                            </a>
+                            <span class="flex flex-col flex-grow text-center">
+                                <span class="font-medium">Sanna Ristola</span>
+                                <span class="text-sm uppercase">Corporate Position</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8 mx-auto mb-6 lg:w-1/3 lg:mb-0 hover:transition duration-500 ease-in-out transform hover:-translate-y-10 hover:scale-y-100 hover:text-black hover:font-semibold">
+                        <div class="h-full p-4 text-justify border rounded-xl">
+                            <p class="text-base font-medium leading-relaxed">"Skate ipsum dolor sit amet, slam birdie wheels ollie darkslide egg plant. Baseplate 540 helipop flypaper feeble griptape. Nollie deck street bluntslide half-cab yeah. Casper slide ollie north 540 Bill Danforth slide cess slide nose blunt. Pressure flip Streetstyle in Tempe mute-air judo air backside fastplant yeah. ".</p>
+                            <a class="flex flex-wrap justify-center mt-6">
+                                <img alt="testimonial" class="inline-block object-cover object-center w-16 h-16 mb-4 rounded-full bg-4gray-100" src="https://images.unsplash.com/photo-1550546094-9835463f9f71?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+                            </a>
+                            <span class="flex flex-col flex-grow text-center">
+                                <span class="font-medium">Sanna Ristola</span>
+                                <span class="text-sm uppercase">Corporate Position</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8 mx-auto mb-6 lg:w-1/3 lg:mb-0 hover:transition duration-500 ease-in-out transform hover:-translate-y-10 hover:scale-y-100 hover:text-black hover:font-semibold">
+                        <div class="h-full p-4 text-justify border rounded-xl">
+                            <p class="text-base font-medium leading-relaxed">"Skate ipsum dolor sit amet, slam birdie wheels ollie darkslide egg plant. Baseplate 540 helipop flypaper feeble griptape. Nollie deck street bluntslide half-cab yeah. Casper slide ollie north 540 Bill Danforth slide cess slide nose blunt. Pressure flip Streetstyle in Tempe mute-air judo air backside fastplant yeah. ".</p>
+                            <a class="flex flex-wrap justify-center mt-6">
+                                <img alt="testimonial" class="inline-block object-cover object-center w-16 h-16 mb-4 rounded-full bg-4gray-100" src="https://images.unsplash.com/photo-1561455571-dedaf3cca28e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80">
+                            </a>
+                            <span class="flex flex-col flex-grow text-center">
+                                <span class="font-medium">Sanna Ristola</span>
+                                <span class="text-sm uppercase">Corporate Position</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials -->
+        <!-- Team -->
+        <div class="text-center py-10 px-5 font-primary font-bold text-3xl" id="team">See Our Team</div>
+        <section>
+            <div class="container px-8 mx-auto lg:px-4">
+                <div class="flex flex-wrap text-justify">
+                    <div class="px-8 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=335&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 1
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 2
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=751&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 3
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 4
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 py-6 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 1
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 py-6 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 2
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 py-6 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 3
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                    <div class="px-8 py-6 lg:w-1/4 md:w-full">
+                        <img class="object-cover object-center w-full h-40 mb-6 rounded"
+                            src="https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80" alt="content">
+                        <h2 class="mb-3 text-lg font-semibold text-gray-700 lg:text-2xl text-center"> Information 4
+                        </h2>
+                        <p class="mb-4 text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat.
+                            Distillery
+                            hexagon disrupt edison bulbche.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Team -->
+        <hr class="border-b border-black opacity-25 my-0 py-0" />
+        <!-- End Pricing -->
+        <footer class="mt-24 bg-white border-t body-font">
+            <div
+                class="container flex flex-col flex-wrap py-5 mx-auto lg:px-20 md:items-center lg:items-start md:flex-row md:flex-no-wrap ">
+                <div class="flex flex-wrap flex-grow mx-auto mt-10 -mb-10 text-left md:mt-0 ">
+                    <div class="w-full lg:w-1/3 md:w-full">
+                        <h1
+                            class="mb-8 text-2xl font-bold text-center text-blue-800 lg:text-left lg:text-2xl title-font">
+                            A pretty long lenght display headline ready to convert visitors into users.</h1>
+                    </div>
+                    <div class="w-full text-right lg:w-1/3 md:w-1/2 ">
+                        <h1 class="mb-3 text-sm font-semibold tracking-widest text-blue-700 uppercase title-font">
+                            Company
+                        </h1>
+                        <nav class="mb-10 list-none">
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Home</a>
+                            </li>
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">About</a>
+                            </li>
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Carriers</a>
+                            </li>
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Pricing</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="w-full text-right lg:w-1/3 md:w-1/2">
+                        <h1 class="mb-3 text-sm font-semibold tracking-widest text-blue-700 uppercase title-font">Legal
+                        </h1>
+                        <nav class="mb-10 list-none">
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Terms Of Service</a>
+                            </li>
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Trademark Policy</a>
+                            </li>
+                            <li>
+                                <a class="text-sm text-gray-600 hover:text-gray-800">Inactivity Policy</a>
+                            </li>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-900">
+                <div class="container flex flex-col flex-wrap px-5 py-6 mx-auto lg:px-20 sm:flex-row">
+                    <span class="inline-flex justify-center mt-2 sm:mt-0 sm:justify-start">
+                        <a class="text-white hover:text-blue-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-4 text-white hover:text-blue-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                class="w-5 h-5" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="ml-4 text-white hover:text-blue-500">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                            </svg>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+  <body>
+</html>
